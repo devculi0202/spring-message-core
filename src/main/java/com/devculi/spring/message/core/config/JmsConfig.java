@@ -1,13 +1,13 @@
 package com.devculi.spring.message.core.config;
 
+import javax.jms.JMSException;
+
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.messaging.MessageChannel;
 
 @Configuration
 @EnableJms
@@ -28,10 +28,9 @@ public class JmsConfig
     }
 
     @Bean
-    public JmsTemplate jmsTemplate(){
+    public JmsTemplate jmsTemplate() throws JMSException{
         JmsTemplate template = new JmsTemplate();
         template.setConnectionFactory(connectionFactory());
-        template.setPubSubDomain(true);
         return template;
     }
 
@@ -40,7 +39,6 @@ public class JmsConfig
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory());
         factory.setConcurrency("1-1");
-        factory.setPubSubDomain(true);
         return factory;
     }
 }
