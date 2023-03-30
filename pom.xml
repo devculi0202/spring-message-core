@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devculi.spring.message.core</groupId>
 	<artifactId>spring-message-core</artifactId>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>net.sf.jptools</groupId>
 			<artifactId>jptools</artifactId>
-			<version>1.7.7</version>
+			<version>1.7.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
